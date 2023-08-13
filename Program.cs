@@ -1,4 +1,6 @@
 ﻿using Calculator.Models;
+using System.Diagnostics.CodeAnalysis;
+using System.Security.Cryptography.X509Certificates;
 
 Operation calc = new Operation();
 
@@ -17,60 +19,44 @@ Console.WriteLine("Seja bem vindo a minha calculadora, aqui você pode escolher 
             Console.WriteLine("5 - Porcentagem");
             Console.WriteLine("6 - Encerrar");
 
+    //Criar o meu menu, usando o switch, se a "opcao" que é igual ao valor que irei receber, for um dos casos abaixo, vai retornar o objeto de operação.
             opcao = Console.ReadLine();
+            Console.Clear();
 
             switch (opcao)
             {
                 case "1":
-                    Console.WriteLine("Digite aqui o primeiro número para a soma");
-                    int x = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Digite aqui o segundo número para a soma");
-                    int y = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine($"{x} + {y} = {x + y}");
-
-                    break;
+                    return calc.sum();
+                    
+                break;              
 
                 case "2":
-                    Console.WriteLine("Digite aqui o primeiro número para a subtração");
-                    x = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Digite aqui o segundo número para a subtração");
-                    y = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine($"{x} - {y} = {x - y}");
+                    return calc.subtraction();
 
-                    break;
+                break;
+
                 case "3":
-                    Console.WriteLine("Digite aqui o primeiro número para a multiplicação");
-                    x = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Digite aqui o segundo número para a multiplicação");
-                    y = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine($"{x} x {y} = {x * y}");
+                    return calc.multiplication();
 
-                    break;
+                break;
+
                 case "4":
-                    Console.WriteLine("Digite aqui o primeiro número para a divisão");
-                    x = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Digite aqui o segundo número para a divisão");
-                    y = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine($"{x} / {y} = {x / y}");
+                    return calc.division();
 
-                    break;
+                break;
 
                 case "5":
-                    Console.WriteLine("Digite aqui o primeiro número para a porcentagem");
-                    x = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Digite aqui o segundo número para a porcentagem");
-                    y = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine($"{x} % {y} = {x % y}");
+                    return calc.percentage();
 
-                    break;
+                break;
 
                 case "6":
                     Console.WriteLine("Encerrar.");
                     Environment.Exit(0);
-                    break;
+                break;
 
                 default:
                     Console.WriteLine("Opção Inválida.");
-                    break;
+                break;
             }
         }
